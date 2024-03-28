@@ -62,13 +62,34 @@
         }
 
         .re {
-          color: white;
           font-size: 25px;
           
         }
-        .fundore {
+        .fabaixo {
           background-color: #58B1F3;
-
+        }
+        .fnormal {
+          background-color: green;
+        }
+        .fsobrepeso {
+          background-color: yellow;
+        }
+        .fobeso1 {
+          background-color: orange;
+        }
+        .fobeso2 {
+          background-color: orange;
+        }
+        .fobeso3 {
+          background-color: red;
+        }
+        
+        .atencao {
+          background-color: white;
+          color: red;
+          border-radius: 5px;
+          padding: 2px;
+          
         }
 
 
@@ -103,20 +124,35 @@
           var soma = (peso / (altura*altura)).toFixed(2)
 
           if (soma < 18.5) {
-            resultado.innerHTML = `<div class="fundore">Resultado é: <strong class="re"> ${soma}</strong><br> voce está abaixo do peso ideal para sua altura.</div> <br> <img src="abaixopeso.png"> <img src="tab.png">`
+            resultado.innerHTML = `<div class="fabaixo">Resultado é: <strong class="re"> ${soma}</strong>,Você está abaixo do peso ideal para sua altura.</div> <br> <img src="abaixopeso.png"> <img src="tab.png">`
+          }
+
+          if (soma >= 18.5 && soma <= 24.9) {
+            resultado.innerHTML = `<div class="fnormal">Resultado é: <strong class="re"> ${soma}</strong>, Você está com o peso ideal para sua altura.</div> <br> <img src="normal.png"> <img src="tab.png">`
+          }
+
+          if (soma >= 25.0 && soma <= 29.9) {
+            resultado.innerHTML = `<div class="fsobrepeso">Resultado é: <strong class="re"> ${soma}</strong>, voce está acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="sobrepeso.png"> <img src="tab.png">`
+          }
+
+          if (soma >= 30.0 && soma <= 34.9) {
+            resultado.innerHTML = `<div class="fobeso1">Resultado é: <strong class="re"> ${soma}</strong>, voce está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso1.png"> <img src="tab.png">`
+          }
+
+          if (soma >= 35.0 && soma <= 39.9) {
+            resultado.innerHTML = `<div class="fobeso2">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso2.png"> <img src="tab.png">`
+          }
+
+          if (soma >= 40) {
+            resultado.innerHTML = `<div class="fobeso3">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso3.png"> <img src="tab.png">`
           }
 
           
         }
 
-
-
         function limparCampo() {
            var limp1 = document.getElementById('peso').value = ''
            var limp2 = document.getElementById('altura').value = ''
-          
-           
-
         }
         
       </script>
