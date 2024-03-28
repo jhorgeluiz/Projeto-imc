@@ -34,12 +34,16 @@
           font-size: 40px;
         }
         h2{
+          margin-top: 5px;
           margin-bottom: 5px;
           text-align: center;
         }
       
         .input1 {
           border-radius: 50px;
+          border-style: none;
+          box-shadow: 1px 2px 5px black;
+          
           height: 40px;
           width: 200px;
           text-align: center;
@@ -47,10 +51,24 @@
          
         }
         .butao {
+          background-color: rgba(8, 233, 158, 0.253);
+          box-shadow: 1px 2px 5px black;
+          border-style: none;
           border-radius: 5px;
           margin-top: 10px;
           padding: 5px;
+          cursor: pointer;
           
+        }
+
+        .re {
+          color: white;
+          font-size: 25px;
+          
+        }
+        .fundore {
+          background-color: #58B1F3;
+
         }
 
 
@@ -62,17 +80,17 @@
         <h1>Calcule seu IMC</h1>
       <main>
         <h2>Peso:</h2>
-        <input class="input1" type="number" name="peso" id="peso" >
+        <input class="input1" type="number" name="peso" id="peso"  required>
         <h2>Altura:</h2>
-        <input class="input1" type="number" name="altura" id="altura"> <br>
+        <input class="input1" type="number" name="altura" id="altura" required> <br>
 
-        <input class="butao" type="button" value="calcular" onclick="calcular()">
-        <button class="butao" onclick="limparCampo()">limpar</button>
+        <input class="butao" type="button" value="Calcular" onclick="calcular()">
+        <button class="butao" onclick="limparCampo()">Limpar</button>
       </main>
 
       <h2> Veja seu resultado abaixo:</h2>
       <div id="resultado">
-        
+          
       </div>
 
       <script>
@@ -82,14 +100,21 @@
           var resultado = document.getElementById('resultado')
           var peso = Number(peso.value)
           var altura = Number(altura.value)
-          var soma = peso / (altura*altura)
+          var soma = (peso / (altura*altura)).toFixed(2)
 
-          resultado.innerHTML = `Resultado é: ${soma}`
+          if (soma < 18.5) {
+            resultado.innerHTML = `<div class="fundore">Resultado é: <strong class="re"> ${soma}</strong><br> voce está abaixo do peso ideal para sua altura.</div> <br> <img src="abaixopeso.png"> <img src="tab.png">`
+          }
+
+          
         }
+
+
 
         function limparCampo() {
            var limp1 = document.getElementById('peso').value = ''
            var limp2 = document.getElementById('altura').value = ''
+          
            
 
         }
