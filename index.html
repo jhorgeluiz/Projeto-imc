@@ -43,7 +43,6 @@
           border-radius: 50px;
           border-style: none;
           box-shadow: 1px 2px 5px black;
-          
           height: 40px;
           width: 200px;
           text-align: center;
@@ -100,18 +99,19 @@
       
         <h1>Calcule seu IMC</h1>
       <main>
-        <h2>Peso:</h2>
-        <input class="input1" type="number" name="peso" id="peso"  required>
-        <h2>Altura:</h2>
-        <input class="input1" type="number" name="altura" id="altura" required> <br>
-
-        <input class="butao" type="button" value="Calcular" onclick="calcular()">
-        <button class="butao" onclick="limparCampo()">Limpar</button>
+        <form action="cadastro.php" method="post" autocomplete="on">
+          <h2>Peso:</h2>
+          <input class="input1" type="number" name="peso" id="peso" required>
+          <h2>Altura:</h2>
+          <input class="input1" type="number" name="altura" id="altura" required> <br>
+          <input class="butao" type="button" value="Calcular" onclick="calcular()">
+          <button class="butao" onclick="limparCampo()">Limpar</button>
+        </form>
       </main>
 
       <h2> Veja seu resultado abaixo:</h2>
       <div id="resultado">
-          
+          <img src="" alt="">
       </div>
 
       <script>
@@ -122,7 +122,7 @@
           var peso = Number(peso.value)
           var altura = Number(altura.value)
           var soma = (peso / (altura*altura)).toFixed(2)
-
+          
           if (soma < 18.5) {
             resultado.innerHTML = `<div class="fabaixo">Resultado é: <strong class="re"> ${soma}</strong>,Você está abaixo do peso ideal para sua altura.</div> <br> <img src="abaixopeso.png"> <img src="tab.png">`
           }
@@ -135,26 +135,29 @@
             resultado.innerHTML = `<div class="fsobrepeso">Resultado é: <strong class="re"> ${soma}</strong>, voce está acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="sobrepeso.png"> <img src="tab.png">`
           }
 
-          if (soma >= 30.0 && soma <= 34.9) {
+          if (soma >= 30.0 && soma <= 39.9) {
             resultado.innerHTML = `<div class="fobeso1">Resultado é: <strong class="re"> ${soma}</strong>, voce está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso1.png"> <img src="tab.png">`
-          }
-
-          if (soma >= 35.0 && soma <= 39.9) {
-            resultado.innerHTML = `<div class="fobeso2">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso2.png"> <img src="tab.png">`
           }
 
           if (soma >= 40) {
             resultado.innerHTML = `<div class="fobeso3">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso3.png"> <img src="tab.png">`
           }
 
+          if (peso == 0) {
+            resultado.innerHTML = `Preencha os dados acima!`
+          }
+          if (altura == 0) {
+            resultado.innerHTML = `Preencha os dados acima!`
+          }
           
+        
         }
 
         function limparCampo() {
            var limp1 = document.getElementById('peso').value = ''
-           var limp2 = document.getElementById('altura').value = ''
+           var limp2 = document.getElementById('altura').value = '' 
         }
-        
+
       </script>
     </body>
 </html>
