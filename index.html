@@ -9,8 +9,8 @@
 
   <body>
     
-    <h1>Calcule seu IMC</h1>
     <main>
+      <h1>Calcule seu IMC</h1>
       <form action="cadastro.php" method="post" autocomplete="on">
         <h2>Peso:</h2>
         <input class="input1" type="number" name="peso" id="peso" required>
@@ -19,13 +19,14 @@
         <input class="butao" type="button" value="Calcular" onclick="calcular()">
         <button class="butao" onclick="limparCampo()">Limpar</button>
       </form>
-    </main>
+    
 
-    <h2> Veja seu resultado abaixo:</h2>
-    <div id="resultado">
+      <h2> Veja seu resultado abaixo:</h2>
+      <div id="resultado">
         
-    </div>
+      </div>
 
+    </main>
     <script>
       function calcular() {
         var peso = document.querySelector('input#peso')
@@ -55,23 +56,20 @@
           resultado.innerHTML = `<div class="fobeso3">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso3.png"> <img src="tab.png">`
         }
 
-        if (peso == 0) {
-          resultado.innerHTML = `Preencha os dados acima!`
+        if (peso == 0 && altura == 0) {
+          resultado.innerHTML = `<p class="preencha">Preencha os dados acima!</p>`
         }
-        if (altura == 0) {
-          resultado.innerHTML = `Preencha os dados acima!`
-        }
-        
-      
       }
 
       function limparCampo() {
         var limp1 = document.getElementById('peso').value = ''
         var limp2 = document.getElementById('altura').value = ''
-
+        if (limp1 == 0 && limp2 == 0){ 
+          resultado.innerHTML = ''
+        }
       }
 
     </script>
-    <footer>Desensolvido por <strong><a href="https://github.com/jhorgeluiz">Jorge Luiz&#x1F517; </a></strong></footer>
+    <footer>&#174Desensolvido por <strong><a href="https://github.com/jhorgeluiz">Jorge Luiz&#x1F517; </a></strong></footer>
   </body>
 </html>
