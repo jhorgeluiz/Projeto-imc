@@ -65,6 +65,7 @@
         box-shadow: 1px 2px 5px black;
         border-style: none;
         border-radius: 5px;
+        margin: 10px;
         margin-top: 10px;
         padding: 5px;
         cursor: pointer;
@@ -149,6 +150,7 @@
         background-color: #efeff5dc;  
         box-shadow: 1px 1px 3px 1px  black;
         text-align: center;
+        
     }
 
     h1 {
@@ -275,6 +277,7 @@
         text-align: center;
         width: 600px;
         
+        
     }
 
     h1 {
@@ -313,8 +316,9 @@
         box-shadow: 1px 2px 5px black;
         border-style: none;
         border-radius: 5px;
+        margin: 10px;
         margin-top: 10px;
-        padding: 5px;
+        padding: 10px;
         cursor: pointer;
     }
     .butao:active {

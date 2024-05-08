@@ -19,7 +19,7 @@
         <input class="butao" type="button" value="Calcular" onclick="calcular()">
         <button class="butao" onclick="limparCampo()">Limpar</button>
       </form>
-    
+        
 
       <h2> Veja seu resultado abaixo:</h2>
       <div id="resultado">
@@ -56,7 +56,7 @@
           resultado.innerHTML = `<div class="fobeso3">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso3.png"> <img src="tab.png">`
         }
 
-        if (peso == 0 && altura == 0) {
+        if (peso == 0 || altura == 0) {
           resultado.innerHTML = `<p class="preencha">Preencha os dados acima!</p>`
         }
       }
