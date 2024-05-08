@@ -1,170 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Calculo-IMC</title>
-      <style>
-        body{
-          background-color: aquamarine;
-          
-        }
-        main{
-          background-color: #efeff5dc;
-          box-shadow: 1px 1px 3px 1px  black;
-          text-align: center;
-          padding-bottom: 10px;
-          border-radius: 20px;
-          
-        }
-        div{
-          display: block;
-          font-size: 20px;
-          border: 1px solid #efeff5dc;
-          background-color: #efeff5dc;  
-          box-shadow: 1px 1px 3px 1px  black;
-          text-align: center;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo-IMC</title>
+    <link rel="stylesheet" href="estilo/style.css">
+  </head>
+
+  <body>
+    
+    <h1>Calcule seu IMC</h1>
+    <main>
+      <form action="cadastro.php" method="post" autocomplete="on">
+        <h2>Peso:</h2>
+        <input class="input1" type="number" name="peso" id="peso" required>
+        <h2>Altura:</h2>
+        <input class="input1" type="number" name="altura" id="altura" required> <br>
+        <input class="butao" type="button" value="Calcular" onclick="calcular()">
+        <button class="butao" onclick="limparCampo()">Limpar</button>
+      </form>
+    </main>
+
+    <h2> Veja seu resultado abaixo:</h2>
+    <div id="resultado">
         
-         
+    </div>
+
+    <script>
+      function calcular() {
+        var peso = document.querySelector('input#peso')
+        var altura = document.querySelector('input#altura')
+        var resultado = document.getElementById('resultado')
+        var peso = Number(peso.value)
+        var altura = Number(altura.value)
+        var soma = (peso / (altura*altura)).toFixed(2)
+        
+        if (soma < 18.5) {
+          resultado.innerHTML = `<div class="fabaixo">Resultado é: <strong class="re"> ${soma}</strong>,Você está abaixo do peso ideal para sua altura.</div> <br> <img src="abaixopeso.png"> <img src="tab.png">`
         }
-        h1{
-          text-align: center;
-          box-shadow: 1px 1px 3px 1px  black;
-          font-family:Arial, Helvetica, sans-serif;
-          font-size: 40px;
+
+        if (soma >= 18.5 && soma <= 24.9) {
+          resultado.innerHTML = `<div class="fnormal">Resultado é: <strong class="re"> ${soma}</strong>, Você está com o peso ideal para sua altura.</div> <br> <img src="normal.png"> <img src="tab.png">`
         }
-        h2{
-          margin-top: 5px;
-          margin-bottom: 5px;
-          text-align: center;
+
+        if (soma >= 25.0 && soma <= 29.9) {
+          resultado.innerHTML = `<div class="fsobrepeso">Resultado é: <strong class="re"> ${soma}</strong>, voce está acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="sobrepeso.png"> <img src="tab.png">`
         }
+
+        if (soma >= 30.0 && soma <= 39.9) {
+          resultado.innerHTML = `<div class="fobeso1">Resultado é: <strong class="re"> ${soma}</strong>, voce está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso1.png"> <img src="tab.png">`
+        }
+
+        if (soma >= 40) {
+          resultado.innerHTML = `<div class="fobeso3">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso3.png"> <img src="tab.png">`
+        }
+
+        if (peso == 0) {
+          resultado.innerHTML = `Preencha os dados acima!`
+        }
+        if (altura == 0) {
+          resultado.innerHTML = `Preencha os dados acima!`
+        }
+        
       
-        .input1 {
-          border-radius: 50px;
-          border-style: none;
-          box-shadow: 1px 2px 5px black;
-          height: 40px;
-          width: 200px;
-          text-align: center;
-          font-size: 30px;
-         
-        }
-        .butao {
-          background-color: rgba(8, 233, 158, 0.253);
-          box-shadow: 1px 2px 5px black;
-          border-style: none;
-          border-radius: 5px;
-          margin-top: 10px;
-          padding: 5px;
-          cursor: pointer;
-          
-        }
+      }
 
-        .re {
-          font-size: 25px;
-          
-        }
-        .fabaixo {
-          background-color: #58B1F3;
-        }
-        .fnormal {
-          background-color: green;
-        }
-        .fsobrepeso {
-          background-color: yellow;
-        }
-        .fobeso1 {
-          background-color: orange;
-        }
-        .fobeso2 {
-          background-color: orange;
-        }
-        .fobeso3 {
-          background-color: red;
-        }
-        
-        .atencao {
-          background-color: white;
-          color: red;
-          border-radius: 5px;
-          padding: 2px;
-          
-        }
+      function limparCampo() {
+        var limp1 = document.getElementById('peso').value = ''
+        var limp2 = document.getElementById('altura').value = ''
 
-        footer {
-          text-align: center;
+      }
 
-        }
-
-
-      </style>
-    </head>
-
-    <body>
-      
-        <h1>Calcule seu IMC</h1>
-      <main>
-        <form action="cadastro.php" method="post" autocomplete="on">
-          <h2>Peso:</h2>
-          <input class="input1" type="number" name="peso" id="peso" required>
-          <h2>Altura:</h2>
-          <input class="input1" type="number" name="altura" id="altura" required> <br>
-          <input class="butao" type="button" value="Calcular" onclick="calcular()">
-          <button class="butao" onclick="limparCampo()">Limpar</button>
-        </form>
-      </main>
-
-      <h2> Veja seu resultado abaixo:</h2>
-      <div id="resultado">
-         
-      </div>
-
-      <script>
-        function calcular() {
-          var peso = document.querySelector('input#peso')
-          var altura = document.querySelector('input#altura')
-          var resultado = document.getElementById('resultado')
-          var peso = Number(peso.value)
-          var altura = Number(altura.value)
-          var soma = (peso / (altura*altura)).toFixed(2)
-          
-          if (soma < 18.5) {
-            resultado.innerHTML = `<div class="fabaixo">Resultado é: <strong class="re"> ${soma}</strong>,Você está abaixo do peso ideal para sua altura.</div> <br> <img src="abaixopeso.png"> <img src="tab.png">`
-          }
-
-          if (soma >= 18.5 && soma <= 24.9) {
-            resultado.innerHTML = `<div class="fnormal">Resultado é: <strong class="re"> ${soma}</strong>, Você está com o peso ideal para sua altura.</div> <br> <img src="normal.png"> <img src="tab.png">`
-          }
-
-          if (soma >= 25.0 && soma <= 29.9) {
-            resultado.innerHTML = `<div class="fsobrepeso">Resultado é: <strong class="re"> ${soma}</strong>, voce está acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="sobrepeso.png"> <img src="tab.png">`
-          }
-
-          if (soma >= 30.0 && soma <= 39.9) {
-            resultado.innerHTML = `<div class="fobeso1">Resultado é: <strong class="re"> ${soma}</strong>, voce está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso1.png"> <img src="tab.png">`
-          }
-
-          if (soma >= 40) {
-            resultado.innerHTML = `<div class="fobeso3">Resultado é: <strong class="re"> ${soma}</strong>, Você está muito acima do peso ideal para sua altura.<br> <strong class="atencao">Atenção!</strong></div> <br> <img src="obeso3.png"> <img src="tab.png">`
-          }
-
-          if (peso == 0) {
-            resultado.innerHTML = `Preencha os dados acima!`
-          }
-          if (altura == 0) {
-            resultado.innerHTML = `Preencha os dados acima!`
-          }
-          
-        
-        }
-
-        function limparCampo() {
-          var limp1 = document.getElementById('peso').value = ''
-          var limp2 = document.getElementById('altura').value = ''
-
-        }
-
-      </script>
-      <footer>Desensolvido por <strong><a href="https://github.com/jhorgeluiz">Jorge Luiz&#x1F517; </a></strong></footer>
-    </body>
+    </script>
+    <footer>Desensolvido por <strong><a href="https://github.com/jhorgeluiz">Jorge Luiz&#x1F517; </a></strong></footer>
+  </body>
 </html>

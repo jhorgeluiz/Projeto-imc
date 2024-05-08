@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+/* ====================CAPA TELA PEQUENA==================== */
+
+@media screen and (min-width: 375px) and (max-width: 768px) {
+
+    body{
+        background-color: aquamarine;
+    }
+
+    main{
+        background-color: #efeff5dc;
+        box-shadow: 1px 1px 3px 1px  black;
+        text-align: center;
+        padding-bottom: 10px;
+        border-radius: 20px;
+    }
+      
+    div{
+        display: block;
+        font-size: 20px;
+        border: 1px solid #efeff5dc;
+        background-color: #efeff5dc;  
+        box-shadow: 1px 1px 3px 1px  black;
+        text-align: center;
+    }
+
+    h1{
+        text-align: center;
+        box-shadow: 1px 1px 3px 1px  black;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 40px;
+    }
+
+    h2{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    
+    .input1 {
+        border-radius: 50px;
+        border-style: none;
+        box-shadow: 1px 2px 5px black;
+        height: 40px;
+        width: 200px;
+        text-align: center;
+        font-size: 30px; 
+    }
+
+    .butao {
+        background-color: rgba(8, 233, 158, 0.253);
+        box-shadow: 1px 2px 5px black;
+        border-style: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .re {
+        font-size: 25px;
+    }
+    .fabaixo {
+        background-color: #58B1F3;
+    }
+    .fnormal {
+        background-color: green;
+    }
+    .fsobrepeso {
+        background-color: yellow;
+    }
+    .fobeso1 {
+        background-color: orange;
+    }
+    .fobeso2 {
+        background-color: orange;
+    }
+    .fobeso3 {
+        background-color: red;
+    }
+    
+    .atencao {
+        background-color: white;
+        color: red;
+        border-radius: 5px;
+        padding: 2px;
+    }
+
+    footer {
+        text-align: center;
+    }
+}
+
+/* ====================CAPA TELA MEDIA==================== */
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+}
+
+/* ====================CAPA TELA GRANDE==================== */
+
+@media screen and (min-width: 992px) {
+
+    body{
+        background-color: aquamarine;
+    }
+
+    main{
+        margin: 20px;
+        margin: auto;
+        background-color: #efeff5dc;
+        box-shadow: 1px 1px 3px 1px  black;
+        text-align: center;
+        padding-bottom: 10px;
+        border-radius: 20px;
+        width: 600px;
+    }
+      
+    #resultado {
+        margin: auto;
+        display: block;
+        font-size: 20px;
+        border: 1px solid #efeff5dc;
+        background-color: #efeff5dc;  
+        box-shadow: 1px 1px 3px 1px  black;
+        text-align: center;
+        width: 600px;
+        height: 250px;
+    }
+
+    h1{
+
+        margin: auto;
+        text-align: center;
+        box-shadow: 1px 1px 3px 1px  black;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        width: 600px;
+    }
+
+    h2{
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+        width: 600px;
+    }
+    
+    .input1 {
+        border-radius: 50px;
+        border-style: none;
+        box-shadow: 1px 2px 5px black;
+        height: 40px;
+        width: 200px;
+        text-align: center;
+        font-size: 30px; 
+    }
+
+    .butao {
+        background-color: rgba(8, 233, 158, 0.253);
+        box-shadow: 1px 2px 5px black;
+        border-style: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .re {
+        font-size: 25px;
+        
+    }
+    .fabaixo {
+        background-color: #58B1F3;
+        height: 50px;
+    }
+    .fnormal {
+        background-color: green;
+        height: 50px;
+    }
+    .fsobrepeso {
+        background-color: yellow;
+        height: 60px;
+    }
+    .fobeso1 {
+        background-color: orange;
+        height: 60px;
+    }
+    .fobeso2 {
+        background-color: orange;
+        height: 60px;
+    }
+    .fobeso3 {
+        background-color: red;
+        height: 60px;
+    }
+    
+    .atencao {
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+        padding: 2px;
+    }
+
+    
+
+    footer {
+        margin: auto;
+        background-color: #0a191e;
+        text-align: center;
+        width: 600px;
+    }
+}
